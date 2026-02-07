@@ -44,6 +44,14 @@ jobs:
           python -m pip install --upgrade pip
           pip install pytest psycopg2-binary faker
 
+      - name: Wait for PostgreSQL to be ready
+        run: |
+          until pg_isready -h localhost -p 5432 -U ${{ secrets.DB_USER }}; do
+            echo "Waiting for PostgreSQL..."
+            sleep 2
+          done
+          echo "PostgreSQL is ready!"
+
       - name: Create table and generate data
         run: |
           python python/generate_students_data.py
