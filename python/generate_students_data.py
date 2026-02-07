@@ -6,7 +6,7 @@ import os
 
 import psycopg2
 from faker import Faker
-from datetime import date
+
 DB_NAME = os.environ.get("PGDATABASE", "school")
 DB_USER = os.environ.get("PGUSER", "postgres")
 DB_PASS = os.environ.get("PGPASSWORD", "qwerty")
