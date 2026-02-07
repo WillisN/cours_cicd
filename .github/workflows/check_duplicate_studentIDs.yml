@@ -20,8 +20,8 @@ jobs:
           - 5432:5432
         env:  
           POSTGRES_DB: ${{ secrets.DB_NAME }}
-          POSTGRES_USER: ${{ secrets.DB_USER }}
-          POSTGRES_PASSWORD: ${{ secrets.DB_PASS }}
+          PGUSER: ${{ secrets.DB_USER }}
+          PGPASSWORD: ${{ secrets.DB_PASS }}
         options: >-
           --health-cmd pg_isready
           --health-interval 10s
@@ -29,11 +29,11 @@ jobs:
           --health-retries 5
     
     env:
-      PGDATABASE: school
-      PGUSER: postgres
-      PGPASSWORD: qwerty
-      PGHOST: localhost
-      PGPORT: 5432
+      PGDATABASE: ${{ secrets.DB_NAME }}
+      PGUSER: ${{ secrets.DB_USER }}
+      PGPASSWORD: ${{ secrets.DB_PASS }}
+      PGHOST: ${{ secrets.DB_HOST }}
+      PGPORT: ${{ secrets.DB_PORT }}
 
     steps:
       - name: Checkout repository
