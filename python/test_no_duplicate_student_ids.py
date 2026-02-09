@@ -16,7 +16,7 @@ def fixture_db_connection():
     conn = psycopg2.connect(
         dbname=os.environ.get("PGDATABASE", "school"),
         user=os.environ.get("PGUSER", "postgres"),
-        password=os.environ.get("PGPASSWORD", ""),
+        password=os.environ.get("PGPASSWORD", "qwerty"),
         host=os.environ.get("PGHOST", "localhost"),
         port=os.environ.get("PGPORT", "5432"),
     )

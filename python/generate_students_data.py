@@ -9,7 +9,7 @@ from faker import Faker
 
 DB_NAME = os.environ.get("PGDATABASE", "school")
 DB_USER = os.environ.get("PGUSER", "postgres")
-DB_PASS = os.environ.get("PGPASSWORD", "")
+DB_PASS = os.environ.get("PGPASSWORD", "qwerty")
 DB_HOST = os.environ.get("PGHOST", "localhost")
 DB_PORT = os.environ.get("PGPORT", "5432")
 
@@ -41,9 +41,9 @@ with conn:
         first_name = fake.first_name()
         last_name = fake.last_name()
         date_of_birth = fake.date_of_birth(None, 16, 35)
-        # first_name = "John"
-        # last_name = "Doe"
-        # date_of_birth = date(2025, 3, 1)
+        #first_name = "John"
+        #last_name = "Doe"
+        #date_of_birth = date(2025, 3, 1)
         address = fake.address()[:100]
 
         # student_id
@@ -57,3 +57,5 @@ with conn:
         )
 
 print("Insert Done!")
+
+#ceci est un commentaire
